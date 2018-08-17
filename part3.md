@@ -4,7 +4,7 @@
     1. Tooling for ELK crypto stack
     2. Feeding your ELK crypto dashboard
 
-## Cloning the ELK-CPACF github repository
+## Cloning the protect data on linuxone with pervasive encryption github repository
 
 First of all, let's install the lab required components and their dependencies in your LinuxONE Linux guest. Please issue the following command:
 ```
@@ -13,79 +13,45 @@ yum install docker-ce docker-compose git curl
 
 Once done, it now time to clone the github repository of this code pattern. Please issue the following command:
 ```
-git clone https://github.com/guikarai/ELK-CPACF.git
+git clone https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption.git
 ```
 
-Now, let's explore the content of the ELK-CPACF git. Please issue the following command:
+Now, let's explore the content of the git repo. Please issue the following command:
 ```
 ls -l
 
-  total 72
-  -rw-r--r-- 1 root root  3504 Aug 16 15:06 README.md
-  -rw-r--r-- 1 root root    26 Aug 16 15:06 _config.yml
-  drwxr-xr-x 3 root root  4096 Aug 16 15:12 icastats
-  drwxr-xr-x 2 root root  4096 Aug 16 15:06 images
-  -rw-r--r-- 1 root root 29456 Aug 16 15:06 part1.md
-  -rw-r--r-- 1 root root  7768 Aug 16 15:06 part2.md
-  -rw-r--r-- 1 root root  6759 Aug 16 15:06 part3.md
-  -rw-r--r-- 1 root root  2785 Aug 16 15:10 vmstat-script.sh
+    total 72
+    -rw-r--r-- 1 root root 11357 Aug 17 15:56 LICENSE
+    -rw-r--r-- 1 root root  3836 Aug 17 15:56 README.md
+    drwxr-xr-x 3 root root  4096 Aug 17 15:58 icastats
+    drwxr-xr-x 2 root root  4096 Aug 17 15:59 images
+    -rw-r--r-- 1 root root 25469 Aug 17 15:56 part1.md
+    -rw-r--r-- 1 root root  3942 Aug 17 15:56 part2.md
+    -rw-r--r-- 1 root root  2527 Aug 17 15:56 part3.md
+    -rw-r--r-- 1 root root 11029 Aug 17 15:56 part4.md
 ```
 
 **Important content regarding the code pattern:**
 * vmstat-script    : Main script to start to collect local vmstats and to push to Elasticsearh.
-* icastats/  : Directory containing main scripts to start to collect local icastats and to push to Elasticsearh.
+* icastats/         : Directory containing main scripts to start to collect local icastats and to push to Elasticsearh.
 
 **Github administrative content:**
 * images/     : Administrative folder to store illustrations.
 * README.md   : Administrative git landing page.
-* _config.yml : Administrative git landing page.
 * part1.md    : Administrative git landing page of part1.
 * part2.md    : Administrative git landing page of part2.
 * part3.md    : Administrative git landing page of part3.
-
-
-**Note:**
-
-* config/             :   This is a directory containing configuration file of Logstash, Kibana and Elasticsearch.
-* docker-compose.yml  :   This is a docker-compose file describing how to start and with which configuration containers of Logstash, Kibana and Elasticsearch from images.
-
-We are now ready to deploy the ELK docker based stack. Please issue the following command:
-```
-docker ps
-CONTAINER ID        IMAGE                                      COMMAND               CREATED             STATUS              PORTS                                                                                                    NAMES
-```
-
-As you can see, there is no running containers. This is normal. Now let's pull the docker base ELK stack using the docker-compose file. Please issue the following command:
-```
-docker-compose -f docker-compose.yml up -d
-
-  Creating Elasticsearch
-  Creating Kibana
-  Creating Logstash
-```
-
-Let's check that the ELK stack run properly. Please issue the following command:
-```
-docker ps
-
-  CONTAINER ID        IMAGE                                      COMMAND               CREATED             STATUS              PORTS                                                                                                    NAMES
-  94c1e73369ff        hyperledgerlinuxone/kibana:latest          "kibana -H 0.0.0.0"   3 seconds ago       Up 2 seconds        0.0.0.0:514->514/tcp, 0.0.0.0:5000->5000/tcp, 0.0.0.0:5043->5043/tcp, 0.0.0.0:9292->9292/tcp, 5601/tcp   Logstash
-  fdafc035465d        hyperledgerlinuxone/kibana:latest          "kibana -H 0.0.0.0"   12 minutes ago      Up 12 minutes       0.0.0.0:5601->5601/tcp                                                                                   Kibana
-  fdbef59b18b3        hyperledgerlinuxone/elasticsearch:latest   "elasticsearch"       12 minutes ago      Up 12 minutes       0.0.0.0:9200->9200/tcp, 0.0.0.0:9300->9300/tcp                                                           Elasticsearch
-
-```
-
-As you can see, there are 3 running docker containers: Elasticsearch, Kibana and Logstash.
+* part4.md    : Administrative git landing page of part3.
 
 Please check that the following URL return something to you:
-* YourIP-Address:9200  : Elasticsearch technical message indicating everything is alright
-* YourIP-Address:5601  : Main Kibana landing page
+* Your-ICP-Service:9200  : Elasticsearch technical message indicating everything is alright
+* Your-ICP-Service:5601  : Main Kibana landing page
 
 ## Tooling for Elasticsearch
 To see with a user friendly interface the status of your elasticsearch instance, please, install in your computer the elasticsearch web-plugin named elasticsearch-head. 
 
 Fill in the form and connect to your elasticsearch instance with the appropriate IP adress. The portname is by default 9200.
-Eg. http://<@IP>:9200. 
+Eg. http://<@ICP>:9200. 
   
 You should be able to see something simillar to the following:
 ![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation.png)
