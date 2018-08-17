@@ -61,9 +61,9 @@ This journey requires an existing Linux on IBM Z environment of your choice as s
 ## Step 4 - [Creating a crypto dashboard with ELK microservice](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/part4.md)
 
     1. Accessing to Kibana
-    2. Sourcing the Elasticsearch DataSource
-    3. Creating your first "Searchs" with Kibana
-    4. Creating your first "charts" with Kibana
+    2. Sourcing the ElasticSearch DataSource
+    3. Creating your first search with Kibana
+    4. Creating your first charts with Kibana
     5. Creating your first dashboard with Kibana
     6. Sharing your first crypto dashboard
     7. Using your first dashboard
