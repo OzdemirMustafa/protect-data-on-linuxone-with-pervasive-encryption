@@ -65,7 +65,7 @@ You should be able to see something simillar to the following:
 
 # 3. Feeding your ELK crypto dashboard
 
-## Linux VMSTATS Data collection
+## Linux vmstat data collection
 
 Now, let's configure the first data source made of Linux vmstats. To collect and to push these data to elasticsearch db we will use a script. Let's start to modify this script to adhere with your environment. Please, correct the default ESserverIP adress with your @IP adress according to your environment. Change the 2 line as show below:
 ```
@@ -96,7 +96,7 @@ You can verify that there are new documents pushed to elasticsearch db thanks to
 
 Please, now open a new ssh session to your LinuxONE Linux guest.
 
-## Linux crypto ICASTATS Data collection
+## Linux crypto icastats data collection
 
 Now, let's configure the main data source made of Linux crypto ICASTATS. To collect and to push these data to elasticsearch db we will use a script. Let's start to modify this script to adhere with your environment. Please, correct the default ESserverIP adress with your @IP adress according to your environment. Change the 2 line as show below:
 ```
