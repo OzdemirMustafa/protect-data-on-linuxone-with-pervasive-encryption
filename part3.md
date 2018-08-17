@@ -21,7 +21,6 @@ Now, let's explore the content of the ELK-CPACF git. Please issue the following 
 ls -l
 
   total 72
-  drwxr-xr-x 3 root root  4096 Aug 16 15:00 ELK
   -rw-r--r-- 1 root root  3504 Aug 16 15:06 README.md
   -rw-r--r-- 1 root root    26 Aug 16 15:06 _config.yml
   drwxr-xr-x 3 root root  4096 Aug 16 15:12 icastats
@@ -33,7 +32,6 @@ ls -l
 ```
 
 **Important content regarding the code pattern:**
-* ELK/      : Directory about the ELK docker stack and configuration.
 * vmstat-script    : Main script to start to collect local vmstats and to push to Elasticsearh.
 * icastats/  : Directory containing main scripts to start to collect local icastats and to push to Elasticsearh.
 
@@ -106,7 +104,7 @@ Fill in the form and connect to your elasticsearch instance with the appropriate
 Eg. http://<@IP>:9200. 
   
 You should be able to see something simillar to the following:
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%20170639%20(2).png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation.png)
 
 ## Seting-up local linux and crypto data collection
 
@@ -140,7 +138,7 @@ It is normal to see every 5 seconds a new line being displayed.
 
 You can verify that there are new documents pushed to elasticsearch db thanks to your web browser tool. If you check it, and if you set the refresh to "Refresh every 5s" in the top-right corner, you should be able to see something as the following:
 
-![alt-text](https://github.com/guikarai/ELK-CPACF/blob/master/images/elasticsearch-tool-vmstat.png)
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/elasticsearch-tool-vmstat.png)
 
 
 Please, now open a new ssh session to your LinuxONE Linux guest.
@@ -178,7 +176,7 @@ It is normal to see every 5 seconds a new line being displayed. Ervery 5 seconds
 To assess that it works properly, with web interface there are new records added in the elasticsearch db.
 Your elasticsearh web interface should look like the foolowing:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/elasticsearch-tool-vmstat-icastats.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images//elasticsearch-tool-vmstat-icastats.png)
 
 You are now good for the part 3 about creating a dashboard to magnify live captured crypto information.
 
