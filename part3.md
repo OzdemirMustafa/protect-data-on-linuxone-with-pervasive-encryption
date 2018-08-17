@@ -54,10 +54,6 @@ ls -l
 * part3.md    : Administrative git landing page of part3.
 * part4.md    : Administrative git landing page of part3.
 
-Please check that the following URL return something to you:
-* Your-ICP-Service:9200  : Elasticsearch technical message indicating everything is alright
-* Your-ICP-Service:5601  : Main Kibana landing page
-
 # 2. Tooling for Elasticsearch
 To see with a user friendly interface the status of your elasticsearch instance, please, install in your computer the elasticsearch web-plugin named elasticsearch-head. 
 
