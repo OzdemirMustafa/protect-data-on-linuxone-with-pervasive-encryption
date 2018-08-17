@@ -51,5 +51,8 @@ The Elastic Stack is the next evolution of ELK.
 
 # 5. Access your ELK microservice
 
+Please check that the following URL return something to you:
+* Your-ICP-Service:9200  : Elasticsearch technical message indicating everything is alright
+* Your-ICP-Service:5601  : Main Kibana landing page
 
 👍 Congratulations! Your ELK application has been instantiated from IBM Cloud Private. You can now ready for the [Step 3](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/part3.md).
