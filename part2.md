@@ -2,6 +2,10 @@
 
 The objective is to discover the IBM Cloud private catalog in order to instantiate containers from Docker images that once together create the ELK microservice. In this way, you will be able to create later your crypto dashboard from ICp.
 
+The objective is to deploy and ELK infrastructure able to create the following kind of dashboard:
+
+![alt-text](https://github.com/guikarai/ELK-CPACF/blob/master/images/full-dashboard.png)
+
 ## The agenda for this section is about:
 1. What the ELK..?!
 2. What to Keep in mind about ELK?
