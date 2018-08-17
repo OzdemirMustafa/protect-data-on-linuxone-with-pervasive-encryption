@@ -1,10 +1,11 @@
 # Welcome in step 3 about pushing crypto activity data to the ICP ELK microservice.
     
 ## Agenda of this section is about:
+    1. Cloning the protect data on linuxone with pervasive encryption github repository
     1. Tooling for ELK crypto stack
     2. Feeding your ELK crypto dashboard
 
-## Cloning the protect data on linuxone with pervasive encryption github repository
+# 1. Cloning the protect data on linuxone with pervasive encryption github repository
 
 First of all, let's install the lab required components and their dependencies in your LinuxONE Linux guest. Please issue the following command:
 ```
@@ -52,7 +53,7 @@ Please check that the following URL return something to you:
 * Your-ICP-Service:9200  : Elasticsearch technical message indicating everything is alright
 * Your-ICP-Service:5601  : Main Kibana landing page
 
-## Tooling for Elasticsearch
+# 2. Tooling for Elasticsearch
 To see with a user friendly interface the status of your elasticsearch instance, please, install in your computer the elasticsearch web-plugin named elasticsearch-head. 
 
 Fill in the form and connect to your elasticsearch instance with the appropriate IP adress. The portname is by default 9200.
@@ -62,9 +63,9 @@ You should be able to see something simillar to the following:
 
 ![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/elasticsearch-tool.png)
 
-# Feeding your ELK crypto dashboard
+# 3. Feeding your ELK crypto dashboard
 
-### Linux VMSTATS Data collection
+## Linux VMSTATS Data collection
 
 Now, let's configure the first data source made of Linux vmstats. To collect and to push these data to elasticsearch db we will use a script. Let's start to modify this script to adhere with your environment. Please, correct the default ESserverIP adress with your @IP adress according to your environment. Change the 2 line as show below:
 ```
@@ -95,7 +96,7 @@ You can verify that there are new documents pushed to elasticsearch db thanks to
 
 Please, now open a new ssh session to your LinuxONE Linux guest.
 
-### Linux crypto ICASTATS Data collection
+## Linux crypto ICASTATS Data collection
 
 Now, let's configure the main data source made of Linux crypto ICASTATS. To collect and to push these data to elasticsearch db we will use a script. Let's start to modify this script to adhere with your environment. Please, correct the default ESserverIP adress with your @IP adress according to your environment. Change the 2 line as show below:
 ```
