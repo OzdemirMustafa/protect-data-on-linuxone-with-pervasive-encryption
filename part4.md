@@ -360,4 +360,4 @@ SHA:
 * SHA2-512: SHA2 family hashing functions operation counter increases to indicate the use of the MSA Hardware instruction.
 * DRBG-SHA-512: The DRBG mechanisms developed and approved by NIST (as in SP 800-90Ar1) use modern algorithms as strong as SHA-512 and AES-256. Operation counter increases to indicate the use of the Hardware.
 
-This ends this ICP Code Pattern. Congratulations.
+👍 Congratulations! This ends this ICP Code Pattern.
