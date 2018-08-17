@@ -2,8 +2,8 @@
     
 ## Agenda of this section is about:
     1. Cloning the protect data on linuxone with pervasive encryption github repository
-    1. Tooling for ELK crypto stack
-    2. Feeding your ELK crypto dashboard
+    2. Tooling for ELK crypto stack
+    3. Feeding your ELK crypto dashboard
 
 # 1. Cloning the protect data on linuxone with pervasive encryption github repository
 
