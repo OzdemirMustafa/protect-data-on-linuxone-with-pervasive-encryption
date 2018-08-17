@@ -1,5 +1,5 @@
 #!/bin/bash
-ESserverIP="127.0.0.1" #<--- Change with your IP address here
+ESserverIP="10.3.57.112" <--- Change with the Elasticsearch ICP IP address here
 
 ESindex=monitor-icastats
 EStype=icastats
