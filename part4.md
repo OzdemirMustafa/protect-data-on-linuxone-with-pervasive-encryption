@@ -297,7 +297,7 @@ You can either share a direct link to a Kibana dashboard, or embed the dashboard
 
 Copy the link you want to share or the iframe you want to embed. You can share the live dashboard or a static snapshot of the current point in time.
 
-# 7. 7. Using your first dashboard
+# 7. Using your first dashboard
 
 You just created a crypto dashboard monitoring both the linux system activity and the hardware crypto activity. Using this dashboard, you can monitor over the time the following information:
 
