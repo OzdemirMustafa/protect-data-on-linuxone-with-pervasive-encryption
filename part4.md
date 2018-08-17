@@ -18,7 +18,7 @@ Kibana is a window into the Elastic Stack. It enables visual exploration and rea
 Note that the IP adress of your LinuxONE cloud Linux VM is different, you must adapt the following accordingly. You can access to the Kibana landing page using the following URL: http://your_ip_adress:5601
 
 A reachable kibana web interface should look like as follow:
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-landingpage.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-landingpage.png)
 
 Now, let's see how Kibana can connect to a source of data (in our case the Elasticsearch DB).
 
@@ -28,7 +28,7 @@ It is time to create an Index Pattern to Connect to Elasticsearh. To use Kibana,
 
 **Action:** Click on the left tab bar to **"Management"**.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation0.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-index-creation0.png)
 
 **Action:** Then Click on **Index patterns**.
 
@@ -40,7 +40,7 @@ An index pattern can also simply be the name of a single index.
 
 **Action:** Click on Index pattern area, and fill the tab with **monitor-vmstat*** as follow. 
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation1.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-index-creation1.png)
 
 **Action:** Then click to **Next Step**.
   
@@ -48,13 +48,13 @@ Your index contains a timestamp field that you want to use to perform time-based
 
 **Action:** In configure settings panel, please select **@Timestamp**.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation2.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-index-creation2.png)
 
 **Action:**  Then validate by clicking on **Create index pattern**.
 
 Here you are, you just sourced Kibana to your crypto monitoring Elasticsearch DB and its content. The structure of the index monitor-vmstat is displayed front of you.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation4.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-index-creation4.png)
 
 ## Creating a second index about Linux crypto data
 
@@ -79,7 +79,7 @@ It is now time to discovert, search, and filter sent information to the Elastics
 
 You can interactively explore your data from the Discover page. You have access to every document in every index that matches the selected index pattern. You can submit search queries, filter the search results, and view document data. You can also see the number of documents that match the search query and get field value statistics. If a time field is configured for the selected index pattern, the distribution of documents over time is displayed in a histogram at the top of the page.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation0.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-search-creation0.png)
 
 Let's start to discover and to explore VMSTAT data sent by LinuxONE virtual machine. When you submit a search request, the histogram, Documents table, and Fields list are updated to reflect the search results. The total number of hits (matching documents) is shown in the toolbar. The Documents table shows the first five hundred hits. 
 
@@ -93,11 +93,11 @@ Now we are good. Let's save this search with a name we can refer later. Saving s
 
 **Action:** Now on the top right bar, click on **Save**, and name your save **vmstat-host** as follow:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation2.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-search-creation2.png)
 
 If successful, you must see the following message on top of the Kibana interface:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation3.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-search-creation3.png)
 
 ## Creating a second search about Linux crypto data
 
@@ -107,11 +107,11 @@ You just create your first search about vmstat. Now, please create a new index a
 
 * **Action:** Select the index **monitor-icastats** as follow:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation4.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-search-creation4.png)
 
 The name of the index **monitor-icastats** should be visible as follow:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation5.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-search-creation5.png)
 
 * **Action:** On **Available field MODE**, on the line of **Host**, Click on **add** field MODE.
 
@@ -125,11 +125,11 @@ A Kibana dashboard displays a collection of visualizations and searches. You can
 
 **Action:** Click on **Visualize** in the side navigation.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation0.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation0.png)
 
 **Action:** Click the **Create new visualization** button or the **+** button:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation1.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation1.png)
 
 To build a visualization from a saved search, click the name of the saved search you previously saved **vmstat-host**. This opens the visualization builder and loads the selected query. When you build a visualization from a saved search, any subsequent modifications to the saved search are automatically reflected in the visualization. To disable automatic updates, you can disconnect a visualization from the saved search.
 
@@ -140,7 +140,7 @@ You can see below the Visual Builder that will help you to create your first vis
 
 **Action:** Please, Click on **Panel Options** as show below:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation7.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation7.png)
 
 From there, you can see that, data displayed in live above come from the Index pattern: **monitor-vmstat**. That is correct.
 
@@ -161,7 +161,7 @@ As you can see on top of the web page, the selected data is displayed. It is now
 
 **Action:** To stack a new source of data in the chart, please cick on **+** as show below. It result to create a new section for a new source of data.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation9.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation9.png)
 
 Now, you understand how it works, so, please create a new section for each source of data listed below. Don't forget to select the **Average** aggregation before selecting the source of data. 
 * cp-id : CPU available and in idle state.
@@ -171,28 +171,28 @@ Now, you understand how it works, so, please create a new section for each sourc
 
 **Action:** To make the Visual Builder easier to use, please compress all your section by clicking on the **shrinker** button located at the left of the chart data color of each section. 
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation11.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/images/kibana-visualize-creation11.png)
 
 It will result the following:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation3.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/images/kibana-visualize-creation3.png)
 
 This is your future chart, so you can also decide color of each data. To do so, you simply have to click on the color for each data section.
 
 **Action:** Now on the top right bar, click on **Save**, and name your save **CPU**.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation4.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation4.png)
 
 If successful, you must see the following message on top of the Kibana interface:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation5.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation5.png)
 
 **Action:** Click on **Visualize** in the side navigation.
 
 Now your job, is to create the following chart regarding the Index monitor-vmstat:  IO, Memory, Procs, Swap, System.
 Your collection of visualization should like the following (this is your new target):
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation6.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation6.png)
 
 To ease the creation of your visuals, you can find below information you can use to succeed. Feel free to define your own colors.
 
@@ -226,12 +226,12 @@ Now your job, is to create the following chart regarding the Index monitor-icast
 
 Your collection of visualization **must** looks like the following (this is your new target):
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation12.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation12.png)
 
 To ease the creation of your visuals, you can find below information you can use to succeed. Feel free to define your own colors.
 
 Don't forget for each create visuals to select the appropriate source of data **monitor-icastats** as show below:
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation13.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-visualize-creation13.png)
 
 * **RSA** : Name of the visualization to be saved
   * RSA-CRT
@@ -261,7 +261,7 @@ A Kibana dashboard displays a collection of visualizations and searches. You can
 
 **Action:** Click on **Dashboard** in the side navigation.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation1.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation1.png)
 
 You have no dashboard yet, this is why it is empty. You are kindly invite to create your first dashboard. Let's do it.
 
@@ -269,7 +269,7 @@ You have no dashboard yet, this is why it is empty. You are kindly invite to cre
 
 To add a visualization, select its name from the list of visualizations or click Add new visualization to create one. If you have a large number of visualizations, you can filter the list.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation2.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation2.png)
 
 **Action:** Add all the visualization you created. Click once on each vizualisation. This will add them on the dashboard.
 
@@ -277,15 +277,15 @@ The visualizations in the dashboard are stored in panels that you can move, resi
 
 You can find below a proposition for your crypto dashboard:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation5.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation5.png)
 
 **Action:** Now on the top right bar, click on **Save**, and name your save **Crypto Activity Monitoring**.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation3.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation3.png)
 
 If successful, you must see the following message on top of the Kibana interface:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation4.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation4.png)
 
 # 6. Sharing your first dashboard
 
@@ -293,7 +293,7 @@ You can either share a direct link to a Kibana dashboard, or embed the dashboard
 
 **Action:** From the dashboard you have created and you want to share, In the menu bar, click **Share**.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-share0.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-share0.png)
 
 Copy the link you want to share or the iframe you want to embed. You can share the live dashboard or a static snapshot of the current point in time.
 
