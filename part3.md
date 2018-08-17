@@ -126,7 +126,4 @@ Your elasticsearh web interface should look like the foolowing:
 
 ![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/elasticsearch-tool-vmstat-icastats.png)
 
-You are now good for the part 3 about creating a dashboard to magnify live captured crypto information.
-
-
 👍 Congratulations! You are now good for the [step 4](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/edit/master/part4.md) about creating a dashboard to magnify live captured crypto information.
