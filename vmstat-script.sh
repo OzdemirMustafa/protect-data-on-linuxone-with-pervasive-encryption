@@ -1,5 +1,5 @@
 #!/bin/bash
-ESserverIP="127.0.0.1" #<--- Change with your IP address here
+ESserverIP="10.3.57.112" #<--- Change with your ICP elastisearch IP address here
 
 ESindex=monitor-vmstat
 EStype=vmstat
