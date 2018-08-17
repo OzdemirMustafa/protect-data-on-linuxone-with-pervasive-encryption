@@ -16,6 +16,11 @@ Once done, it now time to clone the github repository of this code pattern. Plea
 git clone https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption.git
 ```
 
+Please move to the the cloned git repository. Please issue the following command:
+```
+cd protect-data-on-linuxone-with-pervasive-encryption/
+```
+
 Now, let's explore the content of the git repo. Please issue the following command:
 ```
 ls -l
@@ -54,21 +59,18 @@ Fill in the form and connect to your elasticsearch instance with the appropriate
 Eg. http://<@ICP>:9200. 
   
 You should be able to see something simillar to the following:
+
 ![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/elasticsearch-tool.png)
 
-## Seting-up local linux and crypto data collection
+# Feeding your ELK crypto dashboard
 
 ### Linux VMSTATS Data collection
-First of all, let's move backward in the cloned git repository. Please issue the following command:
-```
-cd ..
-```
 
 Now, let's configure the first data source made of Linux vmstats. To collect and to push these data to elasticsearch db we will use a script. Let's start to modify this script to adhere with your environment. Please, correct the default ESserverIP adress with your @IP adress according to your environment. Change the 2 line as show below:
 ```
 vi vmstat-script.sh
   #!/bin/bash
-  ESserverIP="127.0.0.1" <--- Change with your IP address here
+  ESserverIP="10.3.57.112" <--- Change with the Elasticsearch ICP IP address here
 ```
 
 Now, let's make this script executable thanks to following command:
@@ -95,16 +97,11 @@ Please, now open a new ssh session to your LinuxONE Linux guest.
 
 ### Linux crypto ICASTATS Data collection
 
-In your new LinuxONE Linux guest, please move to the the cloned git repository. Please issue the following command:
-```
-cd ELK-CPACF/
-```
-
 Now, let's configure the main data source made of Linux crypto ICASTATS. To collect and to push these data to elasticsearch db we will use a script. Let's start to modify this script to adhere with your environment. Please, correct the default ESserverIP adress with your @IP adress according to your environment. Change the 2 line as show below:
 ```
 vi icastats/crypto-monitoring.sh
   #!/bin/bash
-  ESserverIP="127.0.0.1" <--- Change with your IP address here
+  ESserverIP="10.3.57.112" <--- Change with the Elasticsearch ICP IP address here
 ```
 
 Now, let's make this script executable thanks to following command:
@@ -126,7 +123,7 @@ It is normal to see every 5 seconds a new line being displayed. Ervery 5 seconds
 To assess that it works properly, with web interface there are new records added in the elasticsearch db.
 Your elasticsearh web interface should look like the foolowing:
 
-![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images//elasticsearch-tool-vmstat-icastats.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/elasticsearch-tool-vmstat-icastats.png)
 
 You are now good for the part 3 about creating a dashboard to magnify live captured crypto information.
 
