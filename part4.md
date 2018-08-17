@@ -9,165 +9,355 @@ The agenda of this section is about:
 4. Creating your first charts with Kibana
 5. Creating your first dashboard with Kibana
 6. Sharing your first crypto dashboard
+7. Using your first dashboard
 
-## About Kibana
-Kibana is an open source data visualization plugin for Elasticsearch. It provides visualization capabilities on top of the content indexed on an Elasticsearch cluster. Users can create bar, line and scatter plots, or pie charts and maps on top of large volumes of data. The combination of Elasticsearch, Logstash, and Kibana, referred to as the "ELK Stack". Logstash provides an input stream to Elastic for storage and search, and Kibana accesses the data for visualizations such as dashboards.
+Kibana is a window into the Elastic Stack. It enables visual exploration and real-time analysis of your data in Elasticsearch. This video is perfect for users that are new to Kibana and are looking for a primer on data exploration, visualization, and dashboarding. Watch Alex Francoeur give a demo of going from a Kibana installation to a full dashboard in matter of minutes. 
 
-More information about Kibana are available [here](https://www.elastic.co/products/kibana).
+# 1. Accessing to Kibana
 
-## 1 - Accessing to Kibana
-Please, refer to your provisionned ICP ELK service in order to connect to the Kibana web interface. You simply need to use your web browser. The kibana default port is 5601.
-
-Note that your IP adress is different, you must adapt the following accordingly.
-http://<ICP_ELK_Services_URL>:5601
+Note that the IP adress of your LinuxONE cloud Linux VM is different, you must adapt the following accordingly. You can access to the Kibana landing page using the following URL: http://your_ip_adress:5601
 
 A reachable kibana web interface should look like as follow:
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%2016.58.10%20(2).png)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-landingpage.png)
 
-That is a good start. You can connect to Kibana. Now, let's see how Kibana can connect to a source of data (in our case the Elasticsearch DB).
+Now, let's see how Kibana can connect to a source of data (in our case the Elasticsearch DB).
 
-## Sourcing the ElasticSearch DataSource
+# 2. Sourcing the ElasticSearch DataSource
 
 It is time to create an Index Pattern to Connect to Elasticsearh. To use Kibana, you have to tell it about the Elasticsearch indices that you want to explore by configuring one or more index patterns. 
 
-Click on the left tab bar to *"Management"*.
+**Action:** Click on the left tab bar to **"Management"**.
 
-### A. Define an index pattern named "monitor*"
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation0.png)
+
+**Action:** Then Click on **Index patterns**.
+
+## Creating your first "Index"
+
 An index pattern identifies one or more Elasticsearch indices that you want to explore with Kibana. Kibana looks for index names that match the specified pattern. An asterisk (*) in the pattern matches zero or more characters. For example, the pattern myindex-* matches all indices whose names start with myindex-, such as myindex-1 and myindex-2.
 
 An index pattern can also simply be the name of a single index.
 
-**Action:** Click on Index pattern area, and fill the tab with **monitor*** as follow. 
+**Action:** Click on Index pattern area, and fill the tab with **monitor-vmstat*** as follow. 
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation1.png)
 
 **Action:** Then click to **Next Step**.
-
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.44.34%20(2).png)
-
-### B. Save your defined an index pattern
-
+  
 Your index contains a timestamp field that you want to use to perform time-based comparisons, select the Index contains time-based events option and select the index field that contains the timestamp. Kibana reads the index mapping to list all of the fields that contain a timestamp.
 
 **Action:** In configure settings panel, please select **@Timestamp**.
 
-**Action:**  Then validate by clicking on **Create** index pattern.
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation2.png)
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.34%20(2).png)
+**Action:**  Then validate by clicking on **Create index pattern**.
 
-### C. Check your new defined pattern
+Here you are, you just sourced Kibana to your crypto monitoring Elasticsearch DB and its content. The structure of the index monitor-vmstat is displayed front of you.
 
-Here you are, you just sourced Kibana to your crypto monitoring Elasticsearch DB and its content. The structure of the index monitor* is displayed front of you.
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-index-creation4.png)
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
+## Creating a second index about Linux crypto data
 
-It is now time to capture a set of information from the DB thanks to a search.
+You just create your first index about vmstat. Now, please create a new index about Linux encryption activity the with the following information:
+
+* **Action:** Click on the left tab bar to **"Management"**.
+* **Action:** Then Click on **Index patterns**.
+* **Action:** Click on Index pattern area, and fill the tab with **monitor-icastats***.
+* **Action:** Then click to **Next Step**.
+* **Action:** In configure settings panel, please select **@Timestamp**.
+* **Action:**  Then validate by clicking on **Create index pattern**.
+
+Cool, you have now two created indexes. One named monitor-vmstat and one named monitor-icastats.
+
+It is now time to discovert, search, and filter sent information to the Elasticsearch DB thanks to a "Search".
+
 **Action:** Click on the left tab bar on **"Discover"**. 
 
-## 3 - Creating your first search with Kibana
+# 3. Creating your first "Searchs"
+
+## Creating a search about Linux VMSTAT data
 
 You can interactively explore your data from the Discover page. You have access to every document in every index that matches the selected index pattern. You can submit search queries, filter the search results, and view document data. You can also see the number of documents that match the search query and get field value statistics. If a time field is configured for the selected index pattern, the distribution of documents over time is displayed in a histogram at the top of the page.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99e%CC%81cran%202018-06-20%20a%CC%80%2017.07.05%20(2).png)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation0.png)
 
-#### B. Let's start to discover and to explore crypto data sent by LinuxONE virtual machine.
-
-When you submit a search request, the histogram, Documents table, and Fields list are updated to reflect the search results. The total number of hits (matching documents) is shown in the toolbar. The Documents table shows the first five hundred hits. 
+Let's start to discover and to explore VMSTAT data sent by LinuxONE virtual machine. When you submit a search request, the histogram, Documents table, and Fields list are updated to reflect the search results. The total number of hits (matching documents) is shown in the toolbar. The Documents table shows the first five hundred hits. 
 
 By default, the hits are listed in reverse chronological order, with the newest documents shown first. You can reverse the sort order by clicking the Time column header. You can also sort the table by the values in any indexed field.
 
-**Action:** Click on **Available** field MODE as follow:
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.46.45%20(2).png)
+**Action:** On Available field MODE, on the line of "Host", Click on "add" field MODE. It result the following:
 
-**Action:** Click on **add** field MODE as follow:
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.22%20(2).png)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation1.png)
 
 Now we are good. Let's save this search with a name we can refer later. Saving searches enables you to reload them into Discover and use them as the basis for visualizations. Saving a search saves both the search query string and the currently selected index pattern.
 
-**Action:** Click **Save** in the Kibana toolbar, and enter the name **icastats** for the search and click **Save**.
+**Action:** Now on the top right bar, click on **Save**, and name your save **vmstat-host** as follow:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.47.40%20(2).png)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation2.png)
 
-Once save, we are good to start to create some visual.
+If successful, you must see the following message on top of the Kibana interface:
 
-**Action:** Click on the left tab bar on **Visualize**
-## 4. Creating your first charts with Kibana
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation3.png)
 
-#### Creating your first visualization
+## Creating a second search about Linux crypto data
 
-Visualize enables you to create visualizations of the data in your Elasticsearch indices. You can then build dashboards that display related visualizations. Kibana visualizations are based on Elasticsearch queries. By using a series of Elasticsearch aggregations to extract and process your data, you can create charts that show you the trends, spikes, and dips you need to know about. 
+You just create your first search about vmstat. Now, please create a new index about Linux encryption activity the with the following information:
 
-For the following, You will create visualizations from a search saved from Discover, **icastats**.
+* **Action:** Click on the left tab bar on **"Discover"**. 
 
-**Action:** Click the **Create new visualization** button or the **+** button.
+* **Action:** Select the index **monitor-icastats** as follow:
 
-**Action:** Choose the visualization type: **Vertical Bar**
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation4.png)
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.48.41%20(2).png)
+The name of the index **monitor-icastats** should be visible as follow:
 
-When you build a visualization from a saved search, any subsequent modifications to the saved search are automatically reflected in the visualization.
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-search-creation5.png)
 
-**Action:** Click the name of the saved search you previously saved **icastats**. 
+* **Action:** On **Available field MODE**, on the line of **Host**, Click on **add** field MODE.
 
-This opens the visualization builder and loads the selected query. 
+* **Action:** Now on the top right bar, click on **Save**, and name your save **icastats-host**.
 
-**Action:** Specify a search query to retrieve the data for your visualization.
+# 4. Creating your first "Visualizations"
 
-#### Vizualization builder
-
-You are now on the visualization builder of Kibana.
-**Action:** In the visualization builder, please:
-1. choose the metric aggregation for the visualization’s Y axis: **Average**
-2. choose the metric field for the visualization’s Y axis: **AES CBC**
-3. for the visualizations X axis, select a bucket aggregation: **Date Histogram**
-4. for the visualizations X axis, select a bucket field: **@Timestamp**
-5. for the visualizations X axis, select a bucket interval: **Auto**
-6. to validatek, now click on **play** button as follow:
-
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.49.17%20(2).png)
-
-You should be able to visualize in live crypto metrics with a bar chart.
-
-Now it is time to save your first charts. We will use it later as element of your first dashboard.
-
-**Action:** On the top right bar, click on **Save** and name your save as **AES** as follow:
-
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.49.29%20(2).png)
-
-**NOTE:** You can repeat the process of visualization creation with DES, TDES, SHA-1 and DRBG-SHA-512. Then you will have more than one charts you can resule later to create your crypto dashboard. If you spend enough time on this, your visualization collection should look like something as follow:
-
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.51.53%20(2).png)
-
-You are now ready to create your first dashboard reusing your visualization charts.
-
-**Action:** In the side navigation, click **Dashboard**.
-
-## 5 - Creating your first dashboard with Kibana
+## Creating visualization charts about Linux VMSTAT data
 
 A Kibana dashboard displays a collection of visualizations and searches. You can arrange, resize, and edit the dashboard content and then save the dashboard so you can share it.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.52.10%20(2).png)
+**Action:** Click on **Visualize** in the side navigation.
 
-**Action:** Click **Create new dashboard**.
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation0.png)
 
-**Action:** Click **Add**.
+**Action:** Click the **Create new visualization** button or the **+** button:
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.52.15%20(2).png)
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation1.png)
 
-**Action:** To add a visualization, select **AES** from the list of visualizations or any other created vizualisations.
+To build a visualization from a saved search, click the name of the saved search you previously saved **vmstat-host**. This opens the visualization builder and loads the selected query. When you build a visualization from a saved search, any subsequent modifications to the saved search are automatically reflected in the visualization. To disable automatic updates, you can disconnect a visualization from the saved search.
 
-![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/Capture%20d%E2%80%99%C3%A9cran%202018-05-24%20%C3%A0%2011.52.32%20(2).png)
+**Action:** Choose the visualization type: **Visual Builder**
 
-What is good to know, is that kibana dashboard elements can be arranged. Play a bit with your mouse. The visualizations and searches in a dashboard are stored in panels that you can move, resize, and delete. To move a panel, click and hold the header of a panel and drag to the new location. To resize a panel, click the resize control on the lower right and drag to the new dimensions.
+You can see below the Visual Builder that will help you to create your first visual chart. This tool can be highly customized according your dashboard design need. First of all, you need to select the "Index" that is the source of the data.
 
-Now it is time to save your first cryto activity dashboard. We will use it later as a shared dashboard.
 
-**Action:** On the top right bar, click on **Save** and name your save as **icastats_dashboard**.
+**Action:** Please, Click on **Panel Options** as show below:
 
-## 6 - Sharing your first crypto dashboard
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation7.png)
+
+From there, you can see that, data displayed in live above come from the Index pattern: **monitor-vmstat**. That is correct.
+
+**Action:** Please, Click on **Data**, to move back on the chart visual builder.
+
+It is now time to select some data to create an area charts. Let's create the **CPU Activity** chart together. VMSTAT data monitor CPU activity with the following field:
+* cp-sy : CPU connsumed by the system.
+* cp-id : CPU available and in idle state.
+* cp-st : CPU in steady state.
+* cp-us : CPU consummed by user activities.
+* cp-wa : CPU is wait state.
+
+It is now time for each of above data, to select them to be part of the same chart.
+
+**Action:** On the Data section panel, in **Metrics** section, and in the **Aggregation** field, Select **Average** and then select the data **cp-sy**.
+
+As you can see on top of the web page, the selected data is displayed. It is now time to stack others source of data that define a vmstat CPU activity.
+
+**Action:** To stack a new source of data in the chart, please cick on **+** as show below. It result to create a new section for a new source of data.
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation9.png)
+
+Now, you understand how it works, so, please create a new section for each source of data listed below. Don't forget to select the **Average** aggregation before selecting the source of data. 
+* cp-id : CPU available and in idle state.
+* cp-st : CPU in steady state.
+* cp-us : CPU consummed by user activities.
+* cp-wa : CPU is wait state.
+
+**Action:** To make the Visual Builder easier to use, please compress all your section by clicking on the **shrinker** button located at the left of the chart data color of each section. 
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation11.png)
+
+It will result the following:
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation3.png)
+
+This is your future chart, so you can also decide color of each data. To do so, you simply have to click on the color for each data section.
+
+**Action:** Now on the top right bar, click on **Save**, and name your save **CPU**.
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation4.png)
+
+If successful, you must see the following message on top of the Kibana interface:
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation5.png)
+
+**Action:** Click on **Visualize** in the side navigation.
+
+Now your job, is to create the following chart regarding the Index monitor-vmstat:  IO, Memory, Procs, Swap, System.
+Your collection of visualization should like the following (this is your new target):
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation6.png)
+
+To ease the creation of your visuals, you can find below information you can use to succeed. Feel free to define your own colors.
+
+* **IO** : Name of the visualization to be saved
+  * io-bi
+  * ui-bo
+
+* **Memory**
+  * memory-buff
+  * memory-cache
+  * memory-free
+  * memory-swpd
+
+* **Procs** : Name of the visualization to be saved
+  * procs-b
+  * procs-r
+
+* **Swap** : Name of the visualization to be saved
+  * swap-so
+  * swap-si
+
+* **System** : Name of the visualization to be saved
+  * system-cs
+  * system-in
+
+## Creating visualizations about Linux crypto data
+
+**Action:** Click on **Visualize** in the side navigation.
+
+Now your job, is to create the following chart regarding the Index monitor-icastats:  AES, SHA, RSA.
+
+Your collection of visualization **must** looks like the following (this is your new target):
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation12.png)
+
+To ease the creation of your visuals, you can find below information you can use to succeed. Feel free to define your own colors.
+
+Don't forget for each create visuals to select the appropriate source of data **monitor-icastats** as show below:
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-visualize-creation13.png)
+
+* **RSA** : Name of the visualization to be saved
+  * RSA-CRT
+  * RSA-ME
+
+* **AES**
+  * AES-CBC
+  * AES-CFB
+  * AES-CMAC
+  * AES-CTR
+  * AES-ECB
+  * AES-OFB
+  * AES-XTS
+
+* **SHA** : Name of the visualization to be saved
+  * SHA-1
+  * SHA2-256
+  * SHA2-384
+  * SHA2-512
+  * DRBG-SHA-512
+
+Once done, we can say this is a great achievement! We are now ready to create the Crypto Dashboard.
+
+# 5. Creating your first dashboard
+
+A Kibana dashboard displays a collection of visualizations and searches. You can arrange, resize, and edit the dashboard content and then save the dashboard so you can share it.
+
+**Action:** Click on **Dashboard** in the side navigation.
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation1.png)
+
+You have no dashboard yet, this is why it is empty. You are kindly invite to create your first dashboard. Let's do it.
+
+**Action:** Click **Create new dashboard**. Then Click **Add**.
+
+To add a visualization, select its name from the list of visualizations or click Add new visualization to create one. If you have a large number of visualizations, you can filter the list.
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation2.png)
+
+**Action:** Add all the visualization you created. Click once on each vizualisation. This will add them on the dashboard.
+
+The visualizations in the dashboard are stored in panels that you can move, resize, and delete. To start editing, open the dashboard and click Edit in the menu bar. To move a panel, click and hold the header of a panel and drag to the new location. To resize a panel, click the resize control on the lower right and drag to the new dimensions. Additional commands for managing the panel and its contents are in the gear menu in the upper right. Feel free to arrange their position in the dashboard.
+
+You can find below a proposition for your crypto dashboard:
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation5.png)
+
+**Action:** Now on the top right bar, click on **Save**, and name your save **Crypto Activity Monitoring**.
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation3.png)
+
+If successful, you must see the following message on top of the Kibana interface:
+
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-creation4.png)
+
+# 6. Sharing your first dashboard
 
 You can either share a direct link to a Kibana dashboard, or embed the dashboard in a web page. Users must have Kibana access to view an embedded dashboard.
 
-**Action:** On the top right bar, click on **Share**.
+**Action:** From the dashboard you have created and you want to share, In the menu bar, click **Share**.
 
-**Action:** Copy the link you want to share or the iframe you want to embed. You can share the live dashboard or a static snapshot of the current point in time.
+![alt text](https://github.com/guikarai/ELK-CPACF/blob/master/images/kibana-dashboard-share0.png)
+
+Copy the link you want to share or the iframe you want to embed. You can share the live dashboard or a static snapshot of the current point in time.
+
+# 7. 7. Using your first dashboard
+
+You just created a crypto dashboard monitoring both the linux system activity and the hardware crypto activity. Using this dashboard, you can monitor over the time the following information:
+
+Proc: 
+-------
+* r: How many processes are waiting for CPU time.
+* b: Wait Queue - Process which are waiting for I/O (disk, network, user input,etc..) 
+
+
+Memory: 
+-----------
+* swpd: shows how many blocks are swapped out to disk (paged). Total Virtual memory usage. 
+* free: Idle Memory 
+* buff: Memory used as buffers, like before/after I/O operations
+* cache: Memory used as cache by the Operating System
+
+
+Swap: 
+---------
+* si: How many blocks per second the operating system is swapping in. i.e Memory swapped in from the disk (Read from swap area to Memory)
+* so: How many blocks per second the operating system is swaped Out. i.e Memory swapped to the disk (Written to swap area and cleared from Memory)
+
+IO: 
+------
+* bi: Blocks received from block device - Read (like a hard disk) 
+* bo: Blocks sent to a block device - Write
+
+System: 
+-------------
+* in: The number of interrupts per second, including the clock. 
+* cs: The number of context switches per second. 
+
+CPU: 
+--------
+* us: percentage of cpu used for running non-kernel code. (user time, including  nice time) 
+* sy: percentage of cpu used for running kernel code. (system time - network, IO interrupts, etc) 
+id: cpu idle time in percentage.
+* wa: percentage of time spent by cpu for waiting to IO.
+
+AES:
+-------------
+* AES-CBC:  AES CBC mode of operation counter increases to indicate the use of the MSA Hardware instruction. 
+* AES-CFB:  AES CFB mode of operation counter increases to indicate the use of the MSA Hardware instruction.
+* AES-CMAC: AES CMAC mode of operation counter increases to indicate the use of the MSA Hardware instruction.
+* AES-CTR:  AES CTR mode of operation counter increases to indicate the use of the MSA Hardware instruction.
+* AEC-ECB:  AES ECB mode of operation counter increases to indicate the use of the MSA Hardware instruction.
+* AES-OFB:  AES OFB mode of operation counter increases to indicate the use of the MSA Hardware instruction.
+* AES-XTS:  AES XTS mode of operation counter increases to indicate the use of the MSA Hardware instruction.
+
+RSA:
+-------------
+* RSA-CRT: RSA Chinese Reminder Theorem operation counter increases to indicate the use of the Hardware.
+* RSA-ME: RSA Modulus Exponant operation counter increases to indicate the use of the Hardware.
+
+SHA:
+-------------
+* SHA-1: SHA1 family hashing functions operation counter increases to indicate the use of the MSA Hardware instruction.
+* SHA2-256: SHA2 family hashing functions operation counter increases to indicate the use of the MSA Hardware instruction.
+* SHA2-384: SHA2 family hashing functions operation counter increases to indicate the use of the MSA Hardware instruction.
+* SHA2-512: SHA2 family hashing functions operation counter increases to indicate the use of the MSA Hardware instruction.
+* DRBG-SHA-512: The DRBG mechanisms developed and approved by NIST (as in SP 800-90Ar1) use modern algorithms as strong as SHA-512 and AES-256. Operation counter increases to indicate the use of the Hardware.
 
 This ends this ICP Code Pattern. Congratulations.
