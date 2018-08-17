@@ -26,7 +26,7 @@ Now, let's explore the content of the git repo. Please issue the following comma
 ```
 ls -l
 
-    total 72
+    total 76
     -rw-r--r-- 1 root root 11357 Aug 17 15:56 LICENSE
     -rw-r--r-- 1 root root  3836 Aug 17 15:56 README.md
     drwxr-xr-x 3 root root  4096 Aug 17 15:58 icastats
@@ -35,10 +35,11 @@ ls -l
     -rw-r--r-- 1 root root  3942 Aug 17 15:56 part2.md
     -rw-r--r-- 1 root root  2527 Aug 17 15:56 part3.md
     -rw-r--r-- 1 root root 11029 Aug 17 15:56 part4.md
+    -rwxr-xr-x 1 root root  2781 Aug 17 16:40 vmstat-script.sh
 ```
 
 **Important content regarding the code pattern:**
-* vmstat-script    : Main script to start to collect local vmstats and to push to Elasticsearh.
+* vmstat-script     : Main script to start to collect local vmstats and to push to Elasticsearh.
 * icastats/         : Directory containing main scripts to start to collect local icastats and to push to Elasticsearh.
 
 **Github administrative content:**
