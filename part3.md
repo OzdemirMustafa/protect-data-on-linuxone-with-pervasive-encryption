@@ -44,22 +44,6 @@ ls -l
 * part3.md    : Administrative git landing page of part3.
 
 
-## Deploying an ELK Docker based stack
-
-Let's move inside the ELK/ repository. Please issue the following command:
-```
-cd  ELK/
-```
-
-Let's brows the content of this directory. Please issue the following command:
-```
-ls -l
-
-  total 8
-  drwxr-xr-x 2 root root 4096 Aug 16 14:26 config
-  -rw-r--r-- 1 root root  847 Aug 16 14:46 docker-compose.yml
-```
-
 **Note:**
 
 * config/             :   This is a directory containing configuration file of Logstash, Kibana and Elasticsearch.
