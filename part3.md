@@ -54,7 +54,7 @@ Fill in the form and connect to your elasticsearch instance with the appropriate
 Eg. http://<@ICP>:9200. 
   
 You should be able to see something simillar to the following:
-![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/kibana-dashboard-creation.png)
+![alt text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/elasticsearch-tool.png)
 
 ## Seting-up local linux and crypto data collection
 
