@@ -26,24 +26,28 @@ Now, let's explore the content of the git repo. Please issue the following comma
 ```
 ls -l
 
-    total 76
-    -rw-r--r-- 1 root root 11357 Aug 17 15:56 LICENSE
-    -rw-r--r-- 1 root root  3836 Aug 17 15:56 README.md
-    drwxr-xr-x 3 root root  4096 Aug 17 15:58 icastats
-    drwxr-xr-x 2 root root  4096 Aug 17 15:59 images
-    -rw-r--r-- 1 root root 25469 Aug 17 15:56 part1.md
-    -rw-r--r-- 1 root root  3942 Aug 17 15:56 part2.md
-    -rw-r--r-- 1 root root  2527 Aug 17 15:56 part3.md
-    -rw-r--r-- 1 root root 11029 Aug 17 15:56 part4.md
-    -rwxr-xr-x 1 root root  2781 Aug 17 16:40 vmstat-script.sh
+    total 96
+    -rw-r--r-- 1 root root   581 Aug 17 16:43 CONTRIBUTING.md
+    -rw-r--r-- 1 root root 11357 Aug 17 16:43 LICENSE
+    -rw-r--r-- 1 root root  3200 Aug 17 16:43 MAINTAINERS.md
+    -rw-r--r-- 1 root root  3836 Aug 17 16:43 README.md
+    drwxr-xr-x 3 root root  4096 Aug 17 16:43 icastats
+    drwxr-xr-x 2 root root  4096 Aug 17 16:43 images
+    -rw-r--r-- 1 root root 25469 Aug 17 16:43 part1.md
+    -rw-r--r-- 1 root root  3957 Aug 17 16:43 part2.md
+    -rw-r--r-- 1 root root  6677 Aug 17 16:43 part3.md
+    -rw-r--r-- 1 root root 19906 Aug 17 16:43 part4.md
+    -rw-r--r-- 1 root root  2800 Aug 17 16:43 vmstat-script.sh
 ```
 
 **Important content regarding the code pattern:**
 * vmstat-script     : Main script to start to collect local vmstats and to push to Elasticsearh.
 * icastats/         : Directory containing main scripts to start to collect local icastats and to push to Elasticsearh.
 
-**Github administrative content:**
+**Github administrative content includes the following:**
 * images/     : Administrative folder to store illustrations.
+* MAINTAINERS.md    : Information about maintainers.
+* CONTRIBUTING.md   : Information about how to contribute.
 * README.md   : Administrative git landing page.
 * part1.md    : Administrative git landing page of part1.
 * part2.md    : Administrative git landing page of part2.
