@@ -52,7 +52,7 @@ Once you have your access, you can resume your code pattern journey with the fol
 
 **Action:** From the selection, click on the Helm Chart called **ibm-elk-dev** to see the overview of the this ELK microservice.
 
-![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-2.png))
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-2.png)
 
 **Action:** As you can see in this overview, you selected an ELK microservice to be deployed. You can easily intuit that this microservices is made of 3 docker containers (Elasticsearch, Logstash and Kibana). Click on **Configure** on the bottom-right corner.
 
