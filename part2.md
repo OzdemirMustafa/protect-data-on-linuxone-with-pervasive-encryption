@@ -33,25 +33,40 @@ The Elastic Stack is the next evolution of ELK.
 
 # 3. Discover the Helm chart from the calalog
 
+The App center provides a centralized location from which you can browse, and install packages in your cluster.
+Packages for additional IBM products are available from curated repositories that are included in the default IBM Cloud Private repository list. Your environment must be connected to the internet for you to access the charts for these packages.
+
+Helm, which is the Kubernetes native package management system, is used for application management inside an IBM Cloud Private cluster. The Helm GitHub community curates and continuously expands a set of tested and preconfigured Kubernetes applications. This catalog of stable applications can be added to your cluster from the management console. Installing this Helm community catalog, provides an extra 40+ Kubernetes applications that are ready for deployment in your cluster. 
+
 Prior to follow steps described in this section, please request an IBM Cloud private access from the LinuxONE community Cloud. To do so, please go [here](https://developer.ibm.com/linuxone/home-l1cc30-test/), and click on "Try Containers".
 
 Once you have your access, you can resume your code pattern journey with the following.
 
 **Action:** Login to the [IBM Cloud private catalog] () and fill credentials:
 
-![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_login.png)
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-0.png)
 
-**Action:** Click the top-left icon then go to the catalog from the menu. Click on Catalog then Helm Charts.
+**Action:** Click on the top-right bar on **catalog** from the menu. This will display the catalog of Helm Charts that is available on the ICP.
 
-![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_select_catalog.png)
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-1.png)
 
-**Action:** Filter the diplayed Helm Charts to view the icp-banking-microservices custom Chart. Click on Filter. Check local-charts to display customized charts.
+**Action:** From the selection, click on the Helm Chart called **ibm-elk-dev** to see the overview of the this ELK microservice.
 
-![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_catalog.png)
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-2.png))
 
-**Action:** Click on the Helm Chart called **ibm-elk** to see the overview of the this ELK microservice.
+**Action:** As you can see in this overview, you selected an ELK microservice to be deployed. You can easily intuit that this microservices is made of 3 docker containers (Elasticsearch, Logstash and Kibana). Click on **Configure** on the bottom-right corner.
 
 # 4. Configure and install your ELK microservice
+
+You can configure ELK resources and services here by setting the Memory limits and editing node ports. You are also invited to set the release name and target namespace at this section.
+
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-3.png))
+
+**Action:** Please fill-in the form with an appropriate and unique  **Release name** as shown below. Why not your FirstnameLastname? Select also the appropritate **Target namespace**.
+
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-4.png))
+
+**Action:** Scroll down a little-bit in order to get access to the Elasticsearch and Logstach configuration section. There is nothing to be done here. Default port for elasticsearch is 9200, and 5601 for Kibana. To confirm, and to go the next step, please click on **Install**
 
 # 5. Access your ELK microservice
 
