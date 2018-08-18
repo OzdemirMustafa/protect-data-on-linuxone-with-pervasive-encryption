@@ -33,6 +33,10 @@ The Elastic Stack is the next evolution of ELK.
 
 # 3. Discover the Helm chart from the calalog
 
+Prior to follow steps described in this section, please request an IBM Cloud private access from the LinuxONE community Cloud. To do so, please go [here](https://developer.ibm.com/linuxone/home-l1cc30-test/), and click on "Try Containers".
+
+Once you have your access, you can resume your code pattern journey with the following.
+
 **Action:** Login to the [IBM Cloud private catalog] () and fill credentials:
 
 ![alt-text](https://raw.githubusercontent.com/alexis-chretienne/ICp-banking-microservices/master/images/icp_login.png)
