@@ -60,11 +60,11 @@ Once you have your access, you can resume your code pattern journey with the fol
 
 You can configure ELK resources and services here by setting the Memory limits and editing node ports. You are also invited to set the release name and target namespace at this section.
 
-![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-3.png))
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-3.png)
 
 **Action:** Please fill-in the form with an appropriate and unique  **Release name** as shown below. Why not your FirstnameLastname? Select also the appropritate **Target namespace**.
 
-![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-4.png))
+![alt-text](https://github.com/IBM/protect-data-on-linuxone-with-pervasive-encryption/blob/master/images/icp-4.png)
 
 **Action:** Scroll down a little-bit in order to get access to the Elasticsearch and Logstach configuration section. There is nothing to be done here. Default port for elasticsearch is 9200, and 5601 for Kibana. To confirm, and to go the next step, please click on **Install**
 
