@@ -64,9 +64,9 @@ cat /proc/cpuinfo
   processor 5: version = FF,  identification = 233EF7,  machine = 3906
 ```
 
-**Note**: msa on line 4, indicates that the CPACF instruction is properly supported and detected.
+**Note**: msa on line 5, indicates that the CPACF instruction is properly supported and detected.
 
-**Note 2**: vx on line 4, indicates that SIMD and vector instructions are properly supported and detected.
+**Note 2**: vx on line 5, indicates that SIMD and vector instructions are properly supported and detected.
 
 ## Installing libica
 To make use of the libica hardware support for cryptographic functions, you must install the libica package. Obtain the current libica version from your distribution provider for automated installation by issuing the following command:
