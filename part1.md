@@ -134,7 +134,7 @@ modprobe sha512_s390
 modprobe rng     
 modprobe prng
 modprobe hmac
-modprobe ghash
+modprobe ghash_s390
 modprobe xts
 modprobe ctr
 modprobe gcm
@@ -240,7 +240,7 @@ In the Linux system you use, OpenSSL is already installed, and the system is alr
 - openssl-libs
 - openssl-ibmca
 
-During the installation of Ubuntu, the package openssl-ibmca was not automatically installed and needs to be installed manually. Please issue the following command:
+During the installation of Redhat, the package openssl-ibmca was not automatically installed and needs to be installed manually. Please issue the following command:
 ```
 yum install openssl-ibmca
 ```
