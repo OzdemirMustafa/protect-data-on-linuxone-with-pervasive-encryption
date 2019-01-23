@@ -252,7 +252,7 @@ openssl engine -c
 ```
 ## Configuring OpenSSL
 To use the ibmca engine and to benefit from the Cryptographic hardware support, the configuration file of OpenSSL needs to be adjusted. To customize OpenSSL configuration to enable dynamic engine loading for ibmca, complete the following steps.
-### Locate the OpenSSL configuration file, which in our Ubuntu 16.04.3 LTS distribution is in this subdirectory: 
+### Locate the OpenSSL configuration file (it may be different in your environment): 
 ```
 ls /usr/share/doc/openssl-ibmca-1.3.0/
 ```
